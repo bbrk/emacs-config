@@ -10,6 +10,24 @@
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.cljs$" . clojurescript-mode))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; NRepl
+
+(require 'nrepl)
+(define-key nrepl-mode-map (kbd "C-M-i") 'nrepl-backward-input)
+(define-key nrepl-mode-map (kbd "C-M-k") 'nrepl-forward-input)
+
+(add-hook 'nrepl-interaction-mode-hook
+	  'nrepl-turn-on-eldoc-mode)
+
+(setq nrepl-popup-stacktraces nil)
+
+
+(defun nrepl-custom-workaround ()
+  (nrepl-eval "(apply require clojure.main/repl-requires)"))
+(add-hook 'nrepl-connected-hook
+          'nrepl-custom-workaround)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ErgoEmacs
@@ -25,8 +43,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(add-to-list 'load-path "~/.emacs.d/")
 
 ;; Disable menu bar
 ;; (menu-bar-mode -1)
@@ -313,13 +329,6 @@
           (insert "\"")))))
 
 
-;; nrepl
-(add-hook 'nrepl-interaction-mode-hook
-	  'nrepl-turn-on-eldoc-mode)
-
-(setq nrepl-popup-stacktraces nil)
-
-
 ;; Company mode
 (require 'company)
 (global-company-mode t)
@@ -331,6 +340,3 @@
 (define-key minibuffer-local-completion-map (kbd "C-M-i") 'previous-history-element)
 (define-key minibuffer-local-completion-map (kbd "C-M-k") 'next-history-element)
 
-(require 'nrepl)
-(define-key nrepl-mode-map (kbd "C-M-i") 'nrepl-backward-input)
-(define-key nrepl-mode-map (kbd "C-M-k") 'nrepl-forward-input)
