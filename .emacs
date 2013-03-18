@@ -3,6 +3,8 @@
      (expand-file-name "~/.emacs.d/elpa/package.el"))
   (package-initialize))
 
+(add-to-list 'load-path "~/.emacs.d/")
+
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("tromey" . "http://tromey.com/elpa/"))
 
@@ -173,10 +175,10 @@
 
 (setq auto-mode-alist (cons '("\\.cljs$" . closure-mode) auto-mode-alist))
 
-(add-to-list 'load-path "~/.emacs.d/color-theme/")
-(require 'color-theme)
-(color-theme-initialize)
-(setq color-theme-is-global t)
+;; (add-to-list 'load-path "~/.emacs.d/color-theme/")
+;; (require 'color-theme)
+;; (color-theme-initialize)
+;; (setq color-theme-is-global t)
 
 (tool-bar-mode -1)
 (show-paren-mode 2)
@@ -190,10 +192,10 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector (vector "#708183" "#c60007" "#728a05" "#a57705" "#2075c7" "#c61b6e" "#259185" "#042028"))
- '(custom-enabled-themes (quote (tango-dark)))
- '(custom-safe-themes (quote ("b350a2b83904e2bc8e0978f7b48836903fa5149b6eaaad7aa3e15cf3f4adb060" "7eb9c9db72afc647b2704923458d46e33515564d84a81f0c68383f80eb045b7d" "7fe1e3de3e04afc43f9a3d3a8d38cd0a0efd9d4c" "d14db41612953d22506af16ef7a23c4d112150e5" "2c2877aa7de2d5ec7e06d1c978bd69f01ab2a15f" "1f392dc4316da3e648c6dc0f4aad1a87d4be556c" "baac41e6656dd9a5fd1f76d7d41662b8bc1dc10b" default)))
- '(javahome "/opt/jdk/6")
- '(semantic-java-dependency-system-include-path (quote ("/opt/jdk6")))
+ ;; '(custom-enabled-themes (quote (tango-dark)))
+ ;; '(custom-safe-themes (quote ("b350a2b83904e2bc8e0978f7b48836903fa5149b6eaaad7aa3e15cf3f4adb060" "7eb9c9db72afc647b2704923458d46e33515564d84a81f0c68383f80eb045b7d" "7fe1e3de3e04afc43f9a3d3a8d38cd0a0efd9d4c" "d14db41612953d22506af16ef7a23c4d112150e5" "2c2877aa7de2d5ec7e06d1c978bd69f01ab2a15f" "1f392dc4316da3e648c6dc0f4aad1a87d4be556c" "baac41e6656dd9a5fd1f76d7d41662b8bc1dc10b" default)))
+ ;; '(javahome "/opt/jdk/6")
+ ;; '(semantic-java-dependency-system-include-path (quote ("/opt/jdk6")))
  '(show-paren-mode t)
  '(speedbar-directory-button-trim-method (quote trim))
  '(speedbar-frame-parameters (quote ((minibuffer) (width . 27) (border-width . 1) (menu-bar-lines . 0) (tool-bar-lines . 0) (unsplittable . t) (left-fringe . 0))))
@@ -217,12 +219,12 @@
 
 (setq redisplay-dont-pause t)
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "Consolas" :foundry "microsoft" :slant normal :weight normal :height 143 :width normal)))))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(default ((t (:family "Consolas" :foundry "microsoft" :slant normal :weight normal :height 143 :width normal)))))
 
 (defun my-enlarge-vert ()
   (interactive)
